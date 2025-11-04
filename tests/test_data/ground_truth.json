@@ -1,0 +1,108 @@
+{
+  "1760629159052": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1940.71,
+    "amountDueAtClosing": 1940.71,
+    "county": "Spokane",
+    "parcelNumber": "25251.0217",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "1511 S MAPLE ST, Spokane, WA",
+    "_notes": "Document shows single half payment amount. Next payment is 10/31 (closest to current date Nov 3). Following inferred from semi-annual schedule."
+  },
+  "1760629242882": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1749.03,
+    "amountDueAtClosing": 1749.03,
+    "county": "Spokane",
+    "parcelNumber": "35274.0330",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "3828 E 28TH AVE, Spokane, WA",
+    "_notes": "Both April 30 and October 31 are past due. Agent selects Oct 31 (closest to current date per UNPAID logic)."
+  },
+  "1760629325007": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 2237.46,
+    "amountDueAtClosing": 1118.23,
+    "county": "Montgomery",
+    "parcelNumber": "R72-14209-0026",
+    "nextTaxPaymentDate": "2026-02-28",
+    "followingTaxPaymentDate": "2026-07-31",
+    "propertyAddress": "2819 White Oak Drive, Dayton, Ohio 45420",
+    "_notes": "Agent infers next payment cycle dates based on February/July schedule text from documents."
+  },
+  "1760629341672": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 539.88,
+    "amountDueAtClosing": 539.88,
+    "county": "Pinal",
+    "parcelNumber": "506-03-11502",
+    "nextTaxPaymentDate": "2025-10-01",
+    "followingTaxPaymentDate": "2026-03-01",
+    "propertyAddress": null
+  },
+  "1760629350368": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 11578.11,
+    "amountDueAtClosing": 5789.05,
+    "county": "King",
+    "parcelNumber": "215890235",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "1502 N 107TH ST SEATTLE WA 98133"
+  },
+  "1760629359635": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 7093.8,
+    "amountDueAtClosing": 7093.8,
+    "county": "Contra Costa",
+    "parcelNumber": "210-691-006-6",
+    "nextTaxPaymentDate": "2025-11-01",
+    "followingTaxPaymentDate": "2026-02-01",
+    "propertyAddress": "3223 PINE VALLEY RD, SAN RAMON CA",
+    "_notes": "Full annual amount due at closing (includes both installments for proration)"
+  },
+  "1760629376547": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1567.33,
+    "amountDueAtClosing": 0.0,
+    "county": "Allegheny",
+    "parcelNumber": "76-N-57",
+    "nextTaxPaymentDate": "2025-12-31",
+    "followingTaxPaymentDate": "2026-02-10",
+    "propertyAddress": "3103 Shadeland Ave, Pittsburgh, PA 15212",
+    "_notes": "Document shows all taxes as paid. Using face date 2025-12-31 (future) as next payment. Following is 2026-02-10 discount date."
+  },
+  "1760629388161": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 6308.27,
+    "amountDueAtClosing": 0.0,
+    "county": "King",
+    "parcelNumber": "2460700750",
+    "nextTaxPaymentDate": "2026-04-30",
+    "followingTaxPaymentDate": "2026-10-31",
+    "propertyAddress": "12918 SE 160TH ST, RENTON WA 98058"
+  },
+  "1760629400598": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1060.01,
+    "amountDueAtClosing": 0,
+    "county": "Randolph",
+    "parcelNumber": "7725589196",
+    "nextTaxPaymentDate": "2026-08-31",
+    "followingTaxPaymentDate": "2027-08-31",
+    "propertyAddress": "3667 Clover Drive Sophia, NC 27350",
+    "_notes": "Annual payment schedule. Agent correctly infers following year's payment date."
+  },
+  "1760629416723": {
+    "taxYear": "2024",
+    "annualizedAmountDue": 26636.8,
+    "amountDueAtClosing": 0.0,
+    "county": "Miami-Dade",
+    "parcelNumber": "03-4107-016-1870",
+    "nextTaxPaymentDate": "2026-03-31",
+    "followingTaxPaymentDate": "2027-03-31",
+    "propertyAddress": "1320 ALHAMBRA CIR, Coral Gables, FL 33134-3522"
+  }
+}

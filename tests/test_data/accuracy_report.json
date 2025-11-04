@@ -1,0 +1,427 @@
+{
+  "statistics": {
+    "total_properties": 10,
+    "total_fields": 70,
+    "total_matching": 66,
+    "overall_accuracy": 94.28571428571428,
+    "field_accuracy": {
+      "taxYear": {
+        "matches": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "annualizedAmountDue": {
+        "matches": 10,
+        "total": 10,
+        "accuracy": 100.0
+      },
+      "amountDueAtClosing": {
+        "matches": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "county": {
+        "matches": 10,
+        "total": 10,
+        "accuracy": 100.0
+      },
+      "parcelNumber": {
+        "matches": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "nextTaxPaymentDate": {
+        "matches": 9,
+        "total": 10,
+        "accuracy": 90.0
+      },
+      "followingTaxPaymentDate": {
+        "matches": 10,
+        "total": 10,
+        "accuracy": 100.0
+      }
+    },
+    "perfect_properties": 7
+  },
+  "detailed_results": [
+    {
+      "property_id": "1760629159052",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629242882",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629325007",
+      "fields": {
+        "taxYear": {
+          "match": false,
+          "type": "string_mismatch",
+          "agent": "2024",
+          "ground_truth": "2025"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": false,
+          "type": "numeric_mismatch",
+          "agent": 0.0,
+          "ground_truth": 1118.23,
+          "difference": 1118.23
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 5,
+      "mismatching_fields": 2,
+      "accuracy": 71.42857142857143
+    },
+    {
+      "property_id": "1760629341672",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": false,
+          "type": "string_mismatch",
+          "agent": "2025-12-31",
+          "ground_truth": "2025-10-01"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 6,
+      "mismatching_fields": 1,
+      "accuracy": 85.71428571428571
+    },
+    {
+      "property_id": "1760629350368",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629359635",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629376547",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629388161",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": false,
+          "type": "string_mismatch",
+          "agent": "246070075006",
+          "ground_truth": "2460700750"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 6,
+      "mismatching_fields": 1,
+      "accuracy": 85.71428571428571
+    },
+    {
+      "property_id": "1760629400598",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    },
+    {
+      "property_id": "1760629416723",
+      "fields": {
+        "taxYear": {
+          "match": true,
+          "type": "string_match"
+        },
+        "annualizedAmountDue": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "amountDueAtClosing": {
+          "match": true,
+          "type": "numeric_match"
+        },
+        "county": {
+          "match": true,
+          "type": "string_match"
+        },
+        "parcelNumber": {
+          "match": true,
+          "type": "string_match"
+        },
+        "nextTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        },
+        "followingTaxPaymentDate": {
+          "match": true,
+          "type": "string_match"
+        }
+      },
+      "total_fields": 7,
+      "matching_fields": 7,
+      "mismatching_fields": 0,
+      "accuracy": 100.0
+    }
+  ]
+}

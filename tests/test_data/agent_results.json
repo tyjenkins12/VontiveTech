@@ -1,0 +1,112 @@
+{
+  "1760629159052": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1940.71,
+    "amountDueAtClosing": 1940.71,
+    "county": "Spokane",
+    "parcelNumber": "25251.0217",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "1511 S MAPLE ST",
+    "_dateSelectionReasoning": "Found payment date candidates: '04/30/2025' (1st half) and '10/31/2025' (2nd half). Normalized to 2025-04-30 and 2025-10-31. Distance from CurrentDate (2025-11-04): 2025-04-30 is 188 days past, 2025-10-31 is 4 days past. Since amountDueAtClosing = $1,940.71 > 0 (taxes UNPAID), applied UNPAID logic: Step 1 - no future dates exist (both dates are past). Step 2 - closest past date is 2025-10-31 (4 days past). Step 3 - within 30 days? YES (4 < 30), so selected 2025-10-31 as nextTaxPaymentDate. For followingTaxPaymentDate, selected next installment in semi-annual schedule: 2026-04-30 (rolling to next year's 1st half payment). This is an official Spokane County Treasurer document dated 10/2/2025, showing the full 2025 tax amount of $1,940.71 is still owing with $0.00 in interest/costs, confirming both installments remain unpaid."
+  },
+  "1760629242882": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1749.03,
+    "amountDueAtClosing": 1749.03,
+    "county": "Spokane",
+    "parcelNumber": "35274.0330",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "3828 E 28TH AVE",
+    "_dateSelectionReasoning": "Found payment date candidates from official Spokane County Treasurer 2025 tax statement: April 30, 2025 (1st half due) and October 31, 2025 (2nd half due). Normalized to 2025-04-30 and 2025-10-31. Current date is 2025-11-04. Distance calculations: 2025-04-30 is 188 days past, 2025-10-31 is 4 days past. Document shows Prior Amount Owing = $0.00 and All Amounts Owing = $1,749.03, with 1st Half 2025 Charges = $874.51 and 2nd Half amount = $874.52, indicating both installments are overdue (amountDueAtClosing = $1,749.03 UNPAID). Applying UNPAID algorithm: Step 1 - no future dates exist (both are past). Step 2 - closest past date is 2025-10-31 (4 days past). Step 3 - is 4 days within 30 days? YES, so selected 2025-10-31 as nextTaxPaymentDate. For followingTaxPaymentDate, following the semi-annual schedule established in the document (April 30 and October 31), the next installment after October 31st would be the following year's first half payment: 2026-04-30. This maintains the established semi-annual cadence."
+  },
+  "1760629325007": {
+    "taxYear": "2024",
+    "annualizedAmountDue": 2237.46,
+    "amountDueAtClosing": 0.0,
+    "county": "Montgomery",
+    "parcelNumber": "R72-14209-0026",
+    "nextTaxPaymentDate": "2026-02-28",
+    "followingTaxPaymentDate": "2026-07-31",
+    "propertyAddress": "2819 White Oak Drive, Dayton, Ohio 45420",
+    "_dateSelectionReasoning": "1. Payment date candidates found: Document 1 (lender tax certification, undated) states 'DUE DATES: February and July' with 'December 2024 taxes $1119.23 PAID' and 'June 2025 taxes $1118.23 UNPAID'. Document 2 (official Montgomery County, dated 10/5/25) shows Tax Year 2024 with both installments FULLY PAID ($0.00 unpaid balance for 1st Half, 2nd Half, and Full Year). 2. CRITICAL MULTI-DOCUMENT SCENARIO ANALYSIS: Document 2 (official) shows '2024 PAID, $0 balance' (historical year). Document 1 (lender) references 'December 2024 taxes PAID' and 'June 2025 taxes UNPAID'. However, upon closer examination, both documents are discussing the SAME tax year (2024), not different tax years. The lender document's reference to 'June 2025 taxes' refers to the payment DUE in June 2025 for the 2024 tax year (2nd half installment). The official county document dated 10/5/25 shows this same 2024 tax year is now FULLY PAID with $0.00 balance. 3. RECENCY OVERRIDE: The official county document (dated 10/5/25) is MORE RECENT than the lender certification (undated, but references unpaid June 2025 installment, suggesting it was created before that payment was made). The official document shows the current status as of 10/5/25: all 2024 taxes are PAID. 4. Applying PAID algorithm (amountDueAtClosing = $0.00): Extract payment schedule from semi-annual dates (February/July). Normalized dates: 2025-02-28 (1st half 2025), 2025-07-31 (2nd half 2025), 2026-02-28 (1st half 2026), 2026-07-31 (2nd half 2026). 5. Distance calculation from CurrentDate (2025-11-04): 2025-02-28 is 249 days past, 2025-07-31 is 96 days past, 2026-02-28 is 116 days future, 2026-07-31 is 269 days future. 6. PAID algorithm: Filter to future dates only (>= 2025-11-04). Future dates exist: [2026-02-28, 2026-07-31]. Select EARLIEST future date = 2026-02-28. STOP. 7. Selected nextTaxPaymentDate: 2026-02-28 (earliest future payment date). 8. Selected followingTaxPaymentDate: 2026-07-31 (next installment in semi-annual schedule). 9. FINAL RESOLUTION: Using official county document (more recent, shows current PAID status): taxYear='2024', amountDueAtClosing=$0.00, annualizedAmountDue=$2,237.46, dates from payment schedule per PAID algorithm."
+  },
+  "1760629341672": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 539.88,
+    "amountDueAtClosing": 539.88,
+    "county": "Pinal",
+    "parcelNumber": "506-03-11502",
+    "nextTaxPaymentDate": "2025-12-31",
+    "followingTaxPaymentDate": "2026-03-01",
+    "propertyAddress": null,
+    "_dateSelectionReasoning": "Payment date candidates found from both documents: Document 1 (official Pinal County Treasurer parcel inquiry dated 09/30/2025) shows Tax Year 2025 with semi-annual installments: 1st Half $269.94 due, 2nd Half $269.94 due, Total Due $539.88, with $0.00 paid on both installments (UNPAID status). Document 2 (official Pinal County payment schedule dated 10/2/25) confirms the payment schedule: 1st half taxes due October 1st (delinquent after November 1st), 2nd half taxes due March 1st (delinquent after May 1st), full year due December 31st. Normalized dates extracted: 2025-10-01, 2025-12-31, 2026-03-01. Distance calculations from CurrentDate (2025-11-04): 2025-10-01 is 3 days past, 2025-12-31 is 57 days future, 2026-03-01 is 117 days future. Since amountDueAtClosing = $539.88 (UNPAID - both installments showing $0.00 paid), applying UNPAID logic: Step 1 - Check for future dates: Found 2025-12-31 (57 days future) and 2026-03-01 (117 days future). Select the EARLIEST future date: 2025-12-31. DONE. Selected nextTaxPaymentDate: 2025-12-31 (earliest future payment date, representing the full-year payment option that is still available). Selected followingTaxPaymentDate: 2026-03-01 (next scheduled installment strictly after 2025-12-31, which is the 2nd half payment for the 2025 tax year)."
+  },
+  "1760629350368": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 11578.11,
+    "amountDueAtClosing": 5789.05,
+    "county": "King",
+    "parcelNumber": "215890235",
+    "nextTaxPaymentDate": "2025-10-31",
+    "followingTaxPaymentDate": "2026-04-30",
+    "propertyAddress": "1502 N 107TH ST SEATTLE WA 98133",
+    "_dateSelectionReasoning": "1. Payment date candidates found: April 30, 2025 and October 31, 2025 (from semi-annual payment schedule). Document 1 (dated 6/16/25) states 'First half of 2025 property taxes were due April 30, 2025' and mentions payment deadlines of 'April 30 and October 31'. Document 2 (official King County tax statement) shows 'SECOND HALF AMOUNT IF PAID OR POSTMARKED BY OCTOBER 31, 2025' and displays '2025 2nd Half' with amount $5,789.05. 2. Normalized dates: 2025-04-30 and 2025-10-31. 3. Distance calculations from CurrentDate (2025-11-04): April 30 is 188 days past, October 31 is 4 days past. 4. Since amountDueAtClosing = $5,789.05 > 0 (taxes are UNPAID for second half), following the algorithm: Step 1 - No future dates exist (both are past). Step 2 - Closest past date is 2025-10-31 (4 days past). Step 3 - Is 4 days within 30 days? YES. Therefore, nextTaxPaymentDate = 2025-10-31. 5. For followingTaxPaymentDate, the next installment in the semi-annual schedule after October 31 would be April 30 of the following year = 2026-04-30. 6. Document 2 confirms: Total billed for 2025 = $11,578.11, Amount paid (first half on 04/14/2025) = $5,789.06, Balance (second half unpaid) = $5,789.05. This matches the semi-annual payment structure with October 31, 2025 as the overdue second installment."
+  },
+  "1760629359635": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 7093.8,
+    "amountDueAtClosing": 7093.8,
+    "county": "Contra Costa",
+    "parcelNumber": "210-691-006-6",
+    "nextTaxPaymentDate": "2025-11-01",
+    "followingTaxPaymentDate": "2026-02-01",
+    "propertyAddress": "3223 PINE VALLEY RD, SAN RAMON CA",
+    "_dateSelectionReasoning": "1. Payment date candidates found: Document 2 (official Contra Costa County tax bill, Issue Date 09/07/2025, labeled 'CORRECTED') shows 1st installment due NOV 1, 2025 ($3,546.90) and 2nd installment due FEB 1, 2026 ($3,546.90). Documents 1 and 3 are calculation worksheets showing tax breakdown totaling $7,169.59 (gross amount before exemptions). Document 4 is informational text about payment schedules. 2. Normalized dates: 2025-11-01 and 2026-02-01. 3. Distance calculations from CurrentDate (2025-11-04): 2025-11-01 is 3 days past (abs_days=3), 2026-02-01 is 89 days future (abs_days=89). 4. Since amountDueAtClosing = $7,093.80 > 0 (taxes are UNPAID), applying UNPAID logic: Step 1 - Future dates exist (2026-02-01), but there is a past due installment. Step 2 - Closest past date is 2025-11-01 (3 days past). Step 3 - Is 3 days within 30 days? YES \u2192 Use 2025-11-01 as nextTaxPaymentDate. 5. followingTaxPaymentDate = 2026-02-01 (the next installment in the semi-annual schedule). 6. New documents are identical to existing data sources - Documents 1 and 3 show the same gross calculation worksheet ($7,169.59), Document 2 is the same official county bill ($7,093.80 total due with two installments of $3,546.90 each), Document 4 is general informational text. No changes to existing data. All values confirmed by official county document (Document 2) which takes priority over calculation worksheets."
+  },
+  "1760629376547": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1567.33,
+    "amountDueAtClosing": 0.0,
+    "county": "Allegheny",
+    "parcelNumber": "76-N-57",
+    "nextTaxPaymentDate": "2025-12-31",
+    "followingTaxPaymentDate": "2026-02-10",
+    "propertyAddress": "3103 Shadeland Ave, Pittsburgh, PA 15212",
+    "_dateSelectionReasoning": "1. Payment date candidates found: County tax discount due 4/30/2025, face due 5/31/2025 (PAID); School tax discount due 2/10/2025, face due 12/31/2025 (PAID); City tax discount due 2/10/2025, face due 12/31/2025 (PAID). 2. Normalized dates: 2025-02-10, 2025-04-30, 2025-05-31, 2025-12-31. 3. Distance calculations from CurrentDate (2025-11-04): 2025-02-10 (267 days past), 2025-04-30 (188 days past), 2025-05-31 (157 days past), 2025-12-31 (57 days future). 4. Since amountDueAtClosing = 0.00 (all taxes PAID), filtering to future dates only: 2025-12-31 is the only future date and represents the upcoming face due date for school and city taxes. Per CRITICAL rule, this future date exists in the payment schedule, so we use it as-is without rolling forward. Selected 2025-12-31 as nextTaxPaymentDate. 5. Following date: The payment schedule shows a semi-annual pattern with discount dates of 2/10 and face dates around 4/30-5/31 for county, and 2/10 discount with 12/31 face for school/city. After 12/31/2025, the next scheduled payment would be the 2/10 discount date in the following year: 2026-02-10. This maintains the established payment cadence."
+  },
+  "1760629388161": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 6308.27,
+    "amountDueAtClosing": 0.0,
+    "county": "King",
+    "parcelNumber": "246070075006",
+    "nextTaxPaymentDate": "2026-04-30",
+    "followingTaxPaymentDate": "2026-10-31",
+    "propertyAddress": "12918 SE 160TH ST RENTON WA 98058",
+    "_dateSelectionReasoning": "1. Payment date candidates found: Document 1 (Google search, dated 10/1/25) shows King County semi-annual schedule with April 30 and October 31 due dates. Document 2 (official King County website, accessed 10/1/25) shows 2025 tax year with 'NO TAXES ARE DUE AT THIS TIME' and Balance $0.00, confirming taxes are PAID. The Breakdown by Tax Year table shows 2025 Total billed $6,308.27, Amount paid $6,308.27, Balance $0.00. Payment History shows most recent payment 09/15/2025 for $3,390.70. 2. Normalized dates from payment schedule: 2025-04-30 and 2025-10-31. 3. Distance calculation from CurrentDate (2025-11-04): 2025-04-30 is 188 days past, 2025-10-31 is 4 days past. 4. Since amountDueAtClosing = 0.00 (taxes are PAID), filtering to future dates only. No future dates exist in the 2025 schedule (both April 30 and October 31 have passed CurrentDate of 2025-11-04). 5. Per algorithm: When taxes are PAID and no future dates exist in current year schedule, roll ALL candidate dates forward +1 year: 2026-04-30 and 2026-10-31. 6. Selected nextTaxPaymentDate: 2026-04-30 (earliest future date after rolling forward, representing the first installment of the next tax cycle). 7. Selected followingTaxPaymentDate: 2026-10-31 (next installment in the semi-annual schedule after April 30, representing the second installment of the next tax cycle). 8. Both new documents confirm the same payment schedule and that 2025 taxes are fully paid. New documents provide no conflicting information and confirm existing data is accurate."
+  },
+  "1760629400598": {
+    "taxYear": "2025",
+    "annualizedAmountDue": 1060.01,
+    "amountDueAtClosing": 0.0,
+    "county": "Randolph",
+    "parcelNumber": "7725589196",
+    "nextTaxPaymentDate": "2026-08-31",
+    "followingTaxPaymentDate": "2027-08-31",
+    "propertyAddress": "3667 Clover Drive Sophia, NC 27350",
+    "_dateSelectionReasoning": "1. Payment date candidates found: 'Taxes paid: 9/1/2025 in the amount of $1060.01' and 'Due 8/31/2026 in the estimated amount of $1060.01'. 2. Normalized dates: 2025-09-01 (payment date, not a due date) and 2026-08-31 (next due date). 3. Distance calculation from CurrentDate (2025-11-04): 2026-08-31 is 300 days in the future. 4. Since taxes are PAID (amountDueAtClosing = 0.00), filtered to future dates only. Found one future due date: 2026-08-31, selected as nextTaxPaymentDate. 5. For followingTaxPaymentDate, inferred annual payment schedule based on single annual due date pattern, rolling forward one year to 2027-08-31. 6. New document is identical to existing data source (same Moss Woods PLLC tax certification with same information), confirming all existing values with no changes needed."
+  },
+  "1760629416723": {
+    "taxYear": "2024",
+    "annualizedAmountDue": 26636.8,
+    "amountDueAtClosing": 0.0,
+    "county": "Miami-Dade",
+    "parcelNumber": "03-4107-016-1870",
+    "nextTaxPaymentDate": "2026-03-31",
+    "followingTaxPaymentDate": "2027-03-31",
+    "propertyAddress": "1320 ALHAMBRA CIR, Coral Gables, FL 33134-3522",
+    "_dateSelectionReasoning": "1. Payment date candidates found: Document 1 (AI Overview) states Miami-Dade taxes are due by March 31 and become delinquent on April 1 of the following year. Document 2 shows 'If received by: Aug 29, 2025' for certificate redemption deadline. Document 3 confirms the 2024 bill was paid on 08/14/2025 for $30,726.34 (certificate redemption). No new payment dates found in the new documents beyond what was already in existing data. 2. Normalized dates: The annual tax payment schedule for Miami-Dade is March 31 each year. The Aug 29, 2025 date is specific to the certificate redemption, not the regular payment schedule. 3. Distance calculation: Since amountDueAtClosing = $0.00 (taxes are PAID via certificate redemption on 08/14/2025), I must filter to future dates only per the algorithm. CurrentDate = 2025-11-04. The regular annual payment schedule is March 31. Future dates: 2026-03-31 (508 days future), 2027-03-31 (873 days future). 4. nextTaxPaymentDate selection: Taxes are PAID, so filtering to future dates only. The earliest future date in the annual payment schedule is 2026-03-31. This represents the next annual tax payment due date. 5. followingTaxPaymentDate selection: Following the annual payment cadence, the next payment after March 31, 2026 would be March 31, 2027. 6. Confirmed that payment dates were extracted despite taxes being PAID (via certificate redemption on 08/14/2025), as required by the CRITICAL rule. The regular annual payment schedule continues regardless of the 2024 certificate redemption. The new documents confirm the existing data and provide additional historical payment information (2023: $22,485.62 paid 11/24/2023; 2022: $19,131.48 paid 11/22/2022; etc.) but do not change the payment schedule dates or any other extracted fields."
+  }
+}
