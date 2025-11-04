@@ -67,7 +67,7 @@ Extracted datasets saved to:
 ### LangGraph 6-Node Workflow
 
 1. **load_existing** - Fetch existing dataset + documents for incremental updates
-2. **load_documents** - Extract PDFs from zip (skips macOS metadata)
+2. **load_documents** - Extract PDFs from zip
 3. **extract** - Hybrid text/vision extraction with quality assessment
 4. **merge** - Merge new data with existing dataset
 5. **validate** - Schema + business rule validation
