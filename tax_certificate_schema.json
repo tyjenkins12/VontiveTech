@@ -1,0 +1,1 @@
+{"taxYear":{"type":"string"},"annualizedAmountDue":{"type":"number"},"amountDueAtClosing":{"type":"number"},"nextTaxPaymentDate":{"type":"string","format":"date"},"followingTaxPaymentDate":{"type":"string","format":"date"},"county":{"type":"string"},"parcelNumber":{"type":"string"}}
