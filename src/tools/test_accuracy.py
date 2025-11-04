@@ -169,23 +169,23 @@ def print_report(all_results: list[dict], stats: dict) -> None:
     print("="*80)
 
     # Overall stats
-    print(f"\n📊 Overall Statistics:")
+    print(f"\n Overall Statistics:")
     print(f"  • Total Properties: {stats['total_properties']}")
     print(f"  • Total Fields Tested: {stats['total_fields']}")
     print(f"  • Overall Accuracy: {stats['overall_accuracy']:.2f}%")
     print(f"  • Perfect Extractions: {stats['perfect_properties']}/{stats['total_properties']}")
 
     # Per-field accuracy
-    print(f"\n📋 Field-by-Field Accuracy:")
+    print(f"\n Field-by-Field Accuracy:")
     for field, field_stat in stats['field_accuracy'].items():
-        status = "✅" if field_stat['accuracy'] == 100.0 else "⚠️"
+        status = "" if field_stat['accuracy'] == 100.0 else ""
         print(f"  {status} {field:<25} {field_stat['accuracy']:>6.2f}% ({field_stat['matches']}/{field_stat['total']})")
 
     # Properties with errors
     properties_with_errors = [r for r in all_results if r["accuracy"] < 100.0]
 
     if properties_with_errors:
-        print(f"\n❌ Properties with Mismatches ({len(properties_with_errors)}):")
+        print(f"\n Properties with Mismatches ({len(properties_with_errors)}):")
         for result in properties_with_errors:
             print(f"\n  Property: {result['property_id']}")
             print(f"  Accuracy: {result['accuracy']:.2f}% ({result['matching_fields']}/{result['total_fields']})")
@@ -193,13 +193,13 @@ def print_report(all_results: list[dict], stats: dict) -> None:
             # Show mismatching fields
             for field, comparison in result["fields"].items():
                 if not comparison["match"]:
-                    print(f"    ❌ {field}:")
+                    print(f"     {field}:")
                     print(f"       Agent:        {comparison.get('agent', 'N/A')}")
                     print(f"       Ground Truth: {comparison.get('ground_truth', 'N/A')}")
                     if "difference" in comparison:
                         print(f"       Difference:   {comparison['difference']}")
     else:
-        print(f"\n✅ All properties extracted perfectly!")
+        print(f"\n All properties extracted perfectly!")
 
     print("\n" + "="*80)
 
@@ -214,12 +214,12 @@ def main():
 
     # Check files exist
     if not agent_results_file.exists():
-        print(f"❌ Error: Agent results file not found: {agent_results_file}")
+        print(f" Error: Agent results file not found: {agent_results_file}")
         print("   Run the batch extraction first to generate agent_results.json")
         sys.exit(1)
 
     if not ground_truth_file.exists():
-        print(f"❌ Error: Ground truth file not found: {ground_truth_file}")
+        print(f" Error: Ground truth file not found: {ground_truth_file}")
         print(f"   Create it from the template: tests/test_data/ground_truth_template.json")
         print("   Instructions:")
         print("   1. Copy ground_truth_template.json to ground_truth.json")
@@ -227,7 +227,7 @@ def main():
         sys.exit(1)
 
     # Load data
-    print("📂 Loading data...")
+    print(" Loading data...")
     agent_results = load_json(agent_results_file)
     ground_truth = load_json(ground_truth_file)
 
@@ -237,18 +237,18 @@ def main():
             if field == "_notes":
                 continue
             if value == "VERIFY_VALUE":
-                print(f"❌ Error: Ground truth contains unverified values")
+                print(f" Error: Ground truth contains unverified values")
                 print(f"   Property: {prop_id}, Field: {field}")
                 print("   Please complete the ground truth file before running tests.")
                 sys.exit(1)
 
     # Compare properties
-    print("🔍 Comparing agent results to ground truth...\n")
+    print(" Comparing agent results to ground truth...\n")
     all_results = []
 
     for property_id in agent_results.keys():
         if property_id not in ground_truth:
-            print(f"⚠️  Warning: Property {property_id} not in ground truth, skipping...")
+            print(f"  Warning: Property {property_id} not in ground truth, skipping...")
             continue
 
         result = compare_property(
@@ -272,7 +272,7 @@ def main():
             "detailed_results": all_results
         }, f, indent=2)
 
-    print(f"\n💾 Detailed results saved to: {output_file}")
+    print(f"\n Detailed results saved to: {output_file}")
 
 
 if __name__ == "__main__":

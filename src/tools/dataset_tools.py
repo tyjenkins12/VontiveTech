@@ -44,7 +44,7 @@ def get_existing_dataset(property_id: PropertyID) -> Dataset | None:
         with open(dataset_path, 'r') as f:
             dataset = json.load(f)
 
-        logger.info(f"✅ Loaded existing dataset for {property_id}")
+        logger.info(f" Loaded existing dataset for {property_id}")
         return dataset
 
     except Exception as e:
@@ -81,7 +81,7 @@ def get_linked_documents(property_id: PropertyID) -> list[DocumentTuple]:
                 pdf_bytes = f.read()
             documents.append((pdf_path.name, pdf_bytes))
 
-        logger.info(f"✅ Loaded {len(documents)} linked document(s) for {property_id}")
+        logger.info(f" Loaded {len(documents)} linked document(s) for {property_id}")
         return documents
 
     except Exception as e:
@@ -127,7 +127,7 @@ def update_dataset(
         with open(dataset_path, 'w') as f:
             json.dump(dataset, f, indent=2)
 
-        logger.info(f"✅ Saved dataset for {property_id} to {dataset_path}")
+        logger.info(f" Saved dataset for {property_id} to {dataset_path}")
 
     except Exception as e:
         logger.error(f"Failed to save dataset for {property_id}: {e}")
@@ -153,7 +153,7 @@ def update_dataset(
                 with open(doc_path, 'wb') as f:
                     f.write(pdf_bytes)
 
-            logger.info(f"✅ Archived {len(documents)} document(s) for {property_id}")
+            logger.info(f" Archived {len(documents)} document(s) for {property_id}")
 
         except Exception as e:
             logger.error(f"Failed to archive documents for {property_id}: {e}")

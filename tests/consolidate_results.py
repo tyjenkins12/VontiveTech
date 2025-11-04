@@ -27,7 +27,7 @@ output_file.parent.mkdir(exist_ok=True)
 with open(output_file, 'w') as f:
     json.dump(all_results, f, indent=2)
 
-print(f"✅ Consolidated {len(all_results)} property results to {output_file}")
+print(f" Consolidated {len(all_results)} property results to {output_file}")
 print(f"\nProperties included:")
 for prop_id in sorted(all_results.keys()):
     print(f"  • {prop_id}")

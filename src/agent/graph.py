@@ -27,7 +27,7 @@ def load_existing_node(state: AgentState) -> AgentState:
     This node checks if the property already has partial data extracted
     from previous processing runs.
     """
-    logger.info(f"📂 Loading existing data for property: {state['property_id']}")
+    logger.info(f" Loading existing data for property: {state['property_id']}")
 
     existing_dataset = get_existing_dataset(state['property_id'])
     linked_documents = get_linked_documents(state['property_id'])
@@ -36,14 +36,14 @@ def load_existing_node(state: AgentState) -> AgentState:
     state['linked_documents'] = linked_documents
 
     if existing_dataset:
-        logger.info(f"✅ Found existing dataset with {len(existing_dataset)} fields")
+        logger.info(f" Found existing dataset with {len(existing_dataset)} fields")
         state['processing_log'].append(f"Loaded existing dataset ({len(existing_dataset)} fields)")
     else:
         logger.info("No existing dataset found (new property)")
         state['processing_log'].append("No existing dataset (new property)")
 
     if linked_documents:
-        logger.info(f"✅ Found {len(linked_documents)} linked document(s)")
+        logger.info(f" Found {len(linked_documents)} linked document(s)")
         state['processing_log'].append(f"Loaded {len(linked_documents)} linked documents")
 
     return state
@@ -62,7 +62,7 @@ def load_documents_node(state: AgentState) -> AgentState:
     state['new_documents'] = new_documents
     state['all_documents'] = state['linked_documents'] + new_documents
 
-    logger.info(f"✅ Loaded {len(new_documents)} new document(s)")
+    logger.info(f" Loaded {len(new_documents)} new document(s)")
     logger.info(f"Total documents available: {len(state['all_documents'])}")
 
     state['processing_log'].append(f"Loaded {len(new_documents)} new documents")
@@ -77,7 +77,7 @@ def extract_node(state: AgentState) -> AgentState:
     This node intelligently routes to text-only or vision extraction
     based on PDF text quality.
     """
-    logger.info("🔍 Extracting tax data from documents")
+    logger.info(" Extracting tax data from documents")
 
     # Use new documents for extraction (existing data passed for merging context)
     extracted_data = extractor.extract(
@@ -95,7 +95,7 @@ def extract_node(state: AgentState) -> AgentState:
         logger.info(f"Used {method} extraction")
         state['processing_log'].append(f"Extraction method: {method}")
 
-    logger.info("✅ Data extraction complete")
+    logger.info(" Data extraction complete")
 
     return state
 
@@ -108,7 +108,7 @@ def merge_node(state: AgentState) -> AgentState:
     Note: The extractor already does most merging, but we can add additional
     logic here if needed.
     """
-    logger.info("🔄 Merging data")
+    logger.info(" Merging data")
 
     # If we have both existing and new data, ensure completeness
     if state['existing_dataset'] and state['extracted_data']:
@@ -122,12 +122,12 @@ def merge_node(state: AgentState) -> AgentState:
                 logger.debug(f"Retained existing value for {key}")
 
         state['final_dataset'] = merged
-        logger.info("✅ Merged existing and new data")
+        logger.info(" Merged existing and new data")
         state['processing_log'].append("Merged with existing dataset")
 
     elif state['extracted_data']:
         state['final_dataset'] = state['extracted_data']
-        logger.info("✅ Using extracted data (no existing dataset)")
+        logger.info(" Using extracted data (no existing dataset)")
         state['processing_log'].append("Using new extraction (no merge needed)")
 
     else:
@@ -145,7 +145,7 @@ def validate_node(state: AgentState) -> AgentState:
 
     This ensures data quality before saving.
     """
-    logger.info("✅ Validating final dataset")
+    logger.info(" Validating final dataset")
 
     is_valid, errors = validator.validate(state['final_dataset'])
 
@@ -155,10 +155,10 @@ def validate_node(state: AgentState) -> AgentState:
     ]
 
     if is_valid:
-        logger.info("✅ Validation passed")
+        logger.info(" Validation passed")
         state['processing_log'].append("Validation: PASSED")
     else:
-        logger.warning(f"⚠️ Validation found {len(errors)} issue(s)")
+        logger.warning(f" Validation found {len(errors)} issue(s)")
         state['processing_log'].append(f"Validation: {len(errors)} issues found")
 
     return state
@@ -170,7 +170,7 @@ def save_node(state: AgentState) -> AgentState:
 
     This persists the results for future incremental updates.
     """
-    logger.info(f"💾 Saving dataset for property: {state['property_id']}")
+    logger.info(f" Saving dataset for property: {state['property_id']}")
 
     update_dataset(
         property_id=state['property_id'],
@@ -178,7 +178,7 @@ def save_node(state: AgentState) -> AgentState:
         documents=state['new_documents']
     )
 
-    logger.info("✅ Dataset saved successfully")
+    logger.info(" Dataset saved successfully")
     state['processing_log'].append("Dataset saved")
 
     return state
@@ -241,7 +241,7 @@ def run_extraction_agent(
     Returns:
         Final AgentState with extracted dataset and metadata
     """
-    logger.info(f"🚀 Starting extraction agent for property: {property_id}")
+    logger.info(f" Starting extraction agent for property: {property_id}")
 
     # Initialize state using type-safe helper (Python 3.12+ PEP 692)
     initial_state = create_agent_state(
@@ -253,6 +253,6 @@ def run_extraction_agent(
     graph = create_agent_graph()
     final_state = graph.invoke(initial_state)
 
-    logger.info(f"✅ Extraction complete for property: {property_id}")
+    logger.info(f" Extraction complete for property: {property_id}")
 
     return final_state

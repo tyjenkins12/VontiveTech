@@ -49,21 +49,21 @@ class TaxDataExtractor:
 
             if text and assess_text_quality(text):
                 extracted_texts.append(f"=== {filename} ===\n{text}")
-                logger.info(f"✅ {filename}: Good text extraction")
+                logger.info(f" {filename}: Good text extraction")
             else:
                 all_text_good = False
-                logger.info(f"⚠️ {filename}: Poor/no text, will use vision")
+                logger.info(f" {filename}: Poor/no text, will use vision")
                 break  # Stop checking, we'll use vision
 
         # Route to appropriate extraction method
         if all_text_good and extracted_texts:
             result = self._extract_from_text(extracted_texts, existing_dataset)
             self.text_extraction_count += 1
-            logger.info("💰 Used text-only extraction (cost-efficient)")
+            logger.info(" Used text-only extraction (cost-efficient)")
         else:
             result = self._extract_from_vision(documents, existing_dataset)
             self.vision_extraction_count += 1
-            logger.info("🔍 Used vision extraction (robust)")
+            logger.info(" Used vision extraction (robust)")
 
         return result
 
@@ -104,7 +104,7 @@ class TaxDataExtractor:
             )
 
             result = self._parse_response(response.content[0].text)
-            logger.info("✅ Text-only extraction successful")
+            logger.info(" Text-only extraction successful")
 
             # Log token usage
             logger.info(
@@ -185,7 +185,7 @@ class TaxDataExtractor:
                 raise ValueError("API response has no content")
 
             result = self._parse_response(response.content[0].text)
-            logger.info("✅ Vision extraction successful")
+            logger.info(" Vision extraction successful")
 
             # Log token usage
             logger.info(

@@ -30,7 +30,7 @@ output_file = project_root / "tests/test_data/ground_truth_template.json"
 with open(output_file, 'w') as f:
     json.dump(ground_truth_template, f, indent=2)
 
-print(f"✅ Created ground truth template: {output_file}")
+print(f" Created ground truth template: {output_file}")
 print(f"\nNext steps:")
 print("1. Review each property's source documents")
 print("2. Replace all 'VERIFY_VALUE' placeholders with actual correct values")

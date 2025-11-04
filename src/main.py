@@ -69,22 +69,22 @@ def display_results(property_id: str, final_state: AgentState, show_dataset: boo
     if show_dataset:
         dataset = final_state['final_dataset']
         visible_dataset = _get_user_visible_dataset(dataset)
-        typer.echo("\n📋 Extracted Data:")
+        typer.echo("\n Extracted Data:")
         typer.echo(json.dumps(visible_dataset, indent=2))
 
     # Show validation errors if any
     if final_state['validation_issues']:
-        typer.echo("\n⚠️  Validation Warnings:")
+        typer.echo("\n  Validation Warnings:")
         for issue in final_state['validation_issues']:
             typer.echo(f"  • {issue['message']}")
     else:
-        typer.echo("\n✅ No validation issues")
+        typer.echo("\n No validation issues")
 
     # Show processing info
-    typer.echo("\n📊 Processing Info:")
+    typer.echo("\n Processing Info:")
     typer.echo(f"  • Documents: {len(final_state['new_documents'])}")
     if final_state['extraction_method']:
-        method_emoji = "📝" if final_state['extraction_method'] == 'text' else "🔍"
+        method_emoji = "" if final_state['extraction_method'] == 'text' else ""
         typer.echo(f"  • Method: {method_emoji} {final_state['extraction_method']}-based extraction")
 
     output_path = Path("output") / "datasets" / f"{property_id}.json"
@@ -106,7 +106,7 @@ def extract(
 
     # Interactive mode: prompt for property name if not provided
     if not property_name and not zip_file:
-        typer.echo("🏠 Property Tax Certificate Extractor\n")
+        typer.echo(" Property Tax Certificate Extractor\n")
         property_name = typer.prompt("Enter property name")
 
         # Auto-find zip file
@@ -115,7 +115,7 @@ def extract(
             matching_files = list(tax_certs_dir.glob(f"*{property_name}*.zip"))
             if matching_files:
                 zip_file = matching_files[0]
-                typer.echo(f"📦 Found: {zip_file.name}\n")
+                typer.echo(f" Found: {zip_file.name}\n")
             else:
                 zip_file = Path(typer.prompt("Enter path to zip file"))
         else:
@@ -128,12 +128,12 @@ def extract(
             matching_files = list(tax_certs_dir.glob(f"*{property_name}*.zip"))
             if matching_files:
                 zip_file = matching_files[0]
-                typer.echo(f"📦 Found: {zip_file.name}")
+                typer.echo(f" Found: {zip_file.name}")
             else:
-                typer.echo(f"❌ No zip file found matching '{property_name}' in tax_certificates/", err=True)
+                typer.echo(f" No zip file found matching '{property_name}' in tax_certificates/", err=True)
                 raise typer.Exit(1)
         else:
-            typer.echo("❌ Error: Provide --zip option or create tax_certificates/ directory", err=True)
+            typer.echo(" Error: Provide --zip option or create tax_certificates/ directory", err=True)
             raise typer.Exit(1)
 
     # If only zip file provided, extract ID from filename
@@ -142,13 +142,13 @@ def extract(
 
     # Validate zip file exists
     if not zip_file.exists():
-        typer.echo(f"❌ Error: Zip file not found: {zip_file}", err=True)
+        typer.echo(f" Error: Zip file not found: {zip_file}", err=True)
         raise typer.Exit(1)
 
     # Extract simplified property ID
     property_id = _extract_property_id(property_name)
 
-    typer.echo("🔄 Processing...\n")
+    typer.echo(" Processing...\n")
 
     try:
         # Run the agent
@@ -162,7 +162,7 @@ def extract(
 
     except Exception as e:
         logger.exception("Processing failed")
-        typer.echo(f"\n❌ Error: {e}", err=True)
+        typer.echo(f"\n Error: {e}", err=True)
         raise typer.Exit(1)
 
 
@@ -181,7 +181,7 @@ def process(
 
     # Validate zip file exists
     if not zip_file.exists():
-        typer.echo(f"❌ Error: Zip file not found: {zip_file}", err=True)
+        typer.echo(f" Error: Zip file not found: {zip_file}", err=True)
         raise typer.Exit(1)
 
     # Determine property ID and extract simplified ID
@@ -189,7 +189,7 @@ def process(
         property_id = zip_file.stem
     property_id = _extract_property_id(property_id)
 
-    typer.echo("🔄 Processing...\n")
+    typer.echo(" Processing...\n")
 
     try:
         # Run the agent
@@ -203,7 +203,7 @@ def process(
 
     except Exception as e:
         logger.exception("Processing failed")
-        typer.echo(f"\n❌ Error: {e}", err=True)
+        typer.echo(f"\n Error: {e}", err=True)
         raise typer.Exit(1)
 
 
@@ -221,17 +221,17 @@ def batch(
 
     # Validate input directory
     if not input_dir.exists() or not input_dir.is_dir():
-        typer.echo(f"❌ Error: Input directory not found: {input_dir}", err=True)
+        typer.echo(f" Error: Input directory not found: {input_dir}", err=True)
         raise typer.Exit(1)
 
     # Find all zip files
     zip_files = list(input_dir.glob("*.zip"))
 
     if not zip_files:
-        typer.echo(f"❌ Error: No zip files found in {input_dir}", err=True)
+        typer.echo(f" Error: No zip files found in {input_dir}", err=True)
         raise typer.Exit(1)
 
-    typer.echo(f"📦 Processing {len(zip_files)} properties...\n")
+    typer.echo(f" Processing {len(zip_files)} properties...\n")
 
     # Process each property
     results = []
@@ -255,7 +255,7 @@ def batch(
                 "doc_count": len(final_state['new_documents'])
             })
 
-            typer.echo(f" ✅")
+            typer.echo(f" ")
 
         except Exception as e:
             logger.error(f"Failed to process {property_id}: {e}")
@@ -264,7 +264,7 @@ def batch(
                 "status": "failed",
                 "error": str(e)
             })
-            typer.echo(f" ❌ {e}")
+            typer.echo(f"  {e}")
 
     # Summary
     typer.echo("\n" + "="*60)
@@ -275,8 +275,8 @@ def batch(
     failed = sum(1 for r in results if r['status'] == 'failed')
 
     typer.echo(f"\nTotal properties: {len(results)}")
-    typer.echo(f"  ✅ Successful: {successful}")
-    typer.echo(f"  ❌ Failed: {failed}")
+    typer.echo(f"   Successful: {successful}")
+    typer.echo(f"   Failed: {failed}")
 
     # Show extraction method breakdown
     if successful > 0:
@@ -284,15 +284,15 @@ def batch(
         vision_count = sum(1 for r in results if r.get('extraction_method') == 'vision')
 
         typer.echo(f"\nExtraction methods:")
-        typer.echo(f"  📝 Text-only: {text_count}")
-        typer.echo(f"  🔍 Vision: {vision_count}")
+        typer.echo(f"   Text-only: {text_count}")
+        typer.echo(f"   Vision: {vision_count}")
 
         if text_count > 0:
             savings_pct = (text_count / successful) * 100
-            typer.echo(f"  💰 Cost savings: ~{savings_pct:.1f}% used cheaper text extraction")
+            typer.echo(f"   Cost savings: ~{savings_pct:.1f}% used cheaper text extraction")
 
     output_dir = Path("output") / "datasets"
-    typer.echo(f"\n📂 Datasets saved to: {output_dir}")
+    typer.echo(f"\n Datasets saved to: {output_dir}")
 
 
 @app.command()
@@ -324,7 +324,7 @@ def search(
 
     # At least one search criterion required
     if not any([address, parcel, county, year]):
-        typer.echo("❌ Error: Provide at least one search criterion", err=True)
+        typer.echo(" Error: Provide at least one search criterion", err=True)
         typer.echo("\nExamples:")
         typer.echo("  python -m src.main search --address 'Main Street'")
         typer.echo("  python -m src.main search --parcel '210-691'")
@@ -361,13 +361,13 @@ def search(
     elif output_format.lower() == "csv":
         _display_search_csv(results)
     else:
-        typer.echo(f"❌ Error: Unknown format '{output_format}'. Use: json, table, csv", err=True)
+        typer.echo(f" Error: Unknown format '{output_format}'. Use: json, table, csv", err=True)
         raise typer.Exit(1)
 
 
 def _display_search_json(results: list[tuple[str, dict]]) -> None:
     """Display search results in JSON format."""
-    typer.echo(f"\n🔍 Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
+    typer.echo(f"\n Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
 
     output = []
     for property_id, dataset in results:
@@ -383,7 +383,7 @@ def _display_search_json(results: list[tuple[str, dict]]) -> None:
 
 def _display_search_table(results: list[tuple[str, dict]]) -> None:
     """Display search results in table format."""
-    typer.echo(f"\n🔍 Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
+    typer.echo(f"\n Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
 
     # Header
     typer.echo("─" * 120)
@@ -445,7 +445,7 @@ def _display_search_csv(results: list[tuple[str, dict]]) -> None:
 
 def _interactive_property_selection(results: list[tuple[str, dict]]) -> None:
     """Interactive property selection from search results."""
-    typer.echo(f"\n🔍 Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
+    typer.echo(f"\n Found {len(results)} matching propert{'y' if len(results) == 1 else 'ies'}:\n")
 
     # Display numbered list with summary info
     for i, (property_id, dataset) in enumerate(results, 1):
@@ -490,9 +490,9 @@ def _interactive_property_selection(results: list[tuple[str, dict]]) -> None:
                 else:
                     return
             else:
-                typer.echo(f"❌ Invalid selection. Choose 1-{len(results)}", err=True)
+                typer.echo(f" Invalid selection. Choose 1-{len(results)}", err=True)
         except ValueError:
-            typer.echo("❌ Invalid input. Enter a number or 'q'", err=True)
+            typer.echo(" Invalid input. Enter a number or 'q'", err=True)
 
 
 def _display_property_details(property_id: str, dataset: dict) -> None:
@@ -500,7 +500,7 @@ def _display_property_details(property_id: str, dataset: dict) -> None:
     typer.echo("\n" + "="*60)
     typer.echo(f"PROPERTY DETAILS: {property_id}")
     typer.echo("="*60)
-    typer.echo("\n📋 Full Dataset:")
+    typer.echo("\n Full Dataset:")
     # Filter to user-visible fields only
     visible_dataset = _get_user_visible_dataset(dataset)
     typer.echo(json.dumps(visible_dataset, indent=2))
@@ -542,10 +542,10 @@ def _export_property_to_csv(property_id: str, dataset: dict) -> None:
                 dataset.get('propertyAddress', '')
             ])
 
-        typer.echo(f"\n✅ Exported to: {output_file}")
+        typer.echo(f"\n Exported to: {output_file}")
 
     except Exception as e:
-        typer.echo(f"\n❌ Export failed: {e}", err=True)
+        typer.echo(f"\n Export failed: {e}", err=True)
 
 
 if __name__ == "__main__":

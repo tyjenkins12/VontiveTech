@@ -34,7 +34,7 @@ def load_property_documents(zip_path: FilePath) -> list[DocumentTuple]:
                     documents.append((file_info.filename, pdf_bytes))
                     logger.info(f"Loaded: {file_info.filename} ({len(pdf_bytes)} bytes)")
 
-        logger.info(f"✅ Loaded {len(documents)} PDF(s) from {Path(zip_path).name}")
+        logger.info(f" Loaded {len(documents)} PDF(s) from {Path(zip_path).name}")
         return documents
 
     except Exception as e:
@@ -130,8 +130,8 @@ def assess_text_quality(text: str) -> bool:
         return False
 
     # FORCE VISION EXTRACTION FOR TESTING
-    logger.info("⚠️ Forcing vision extraction (test mode)")
+    logger.info(" Forcing vision extraction (test mode)")
     return False
 
-    # logger.info("✅ Text quality sufficient for text-only extraction")
+    # logger.info(" Text quality sufficient for text-only extraction")
     # return True

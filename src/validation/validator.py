@@ -43,9 +43,9 @@ class DatasetValidator:
         is_valid = len(errors) == 0
 
         if is_valid:
-            logger.info("✅ Validation passed")
+            logger.info(" Validation passed")
         else:
-            logger.warning(f"⚠️ Validation failed with {len(errors)} errors")
+            logger.warning(f" Validation failed with {len(errors)} errors")
             for error in errors:
                 logger.warning(f"  - {error}")
 
