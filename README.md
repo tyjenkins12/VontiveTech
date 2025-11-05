@@ -73,6 +73,8 @@ Extracted datasets saved to:
 5. **validate** - Schema + business rule validation
 6. **save** - Persist dataset and archive documents
 
+![img.png](img.png)
+
 ### Key Components
 
 ```
